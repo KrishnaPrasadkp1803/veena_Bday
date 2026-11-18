@@ -9,9 +9,7 @@
 
 <style>
 
-/* =========================
-   GENERAL STYLING
-========================= */
+/* GENERAL STYLING */
 
 * {
     margin: 0;
@@ -43,9 +41,7 @@ body {
     padding: 30px 18px;
 }
 
-/* =========================
-   HEADINGS
-========================= */
+/* HEADINGS */
 
 h1 {
     font-size: clamp(38px, 8vw, 65px);
@@ -65,9 +61,100 @@ p {
     line-height: 1.8;
 }
 
-/* =========================
-   HEART ANIMATION
-========================= */
+/* BUTTONS */
+
+button {
+    padding: 15px 30px;
+    margin: 20px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff4d94, #ff9ac5);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff4d94;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* PUZZLE SCREEN */
+
+#puzzle {
+    max-width: 650px;
+    width: 100%;
+    animation: appear 1.2s ease;
+}
+
+.puzzle-card {
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,182,213,0.5);
+    border-radius: 22px;
+    padding: 30px 22px;
+    margin-top: 20px;
+    box-shadow: 0 0 25px rgba(255,77,148,0.2);
+}
+
+.puzzle-heart {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: heartbeat 1.3s infinite;
+}
+
+.puzzle-question {
+    color: #ffc0d9;
+    font-size: 23px;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.puzzle-option {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 16px;
+    border: 1px solid rgba(255,182,213,0.5);
+    border-radius: 15px;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.puzzle-option:hover {
+    background: rgba(255,77,148,0.3);
+}
+
+.puzzle-option.selected {
+    background: rgba(255,77,148,0.4);
+    border: 2px solid #ff9ac5;
+}
+
+#puzzleFeedback {
+    min-height: 35px;
+    color: #ffc0d9;
+    margin-top: 10px;
+}
+
+/* WELCOME SCREEN */
+
+#welcome {
+    display: none;
+    animation: appear 1.5s ease;
+}
+
+/* HEART ANIMATION */
 
 .heart {
     font-size: 65px;
@@ -85,31 +172,7 @@ p {
     }
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
-button {
-    padding: 15px 30px;
-    margin: 20px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(45deg, #ff4d94, #ff9ac5);
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0 20px #ff4d94;
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.08);
-}
-
-/* =========================
-   SURPRISE SECTION
-========================= */
+/* SURPRISE SECTION */
 
 #surprise {
     display: none;
@@ -130,9 +193,7 @@ button:hover {
     }
 }
 
-/* =========================
-   VEENA PHOTO
-========================= */
+/* VEENA PHOTO */
 
 .photo {
     display: block;
@@ -146,9 +207,7 @@ button:hover {
     margin: 20px auto;
 }
 
-/* =========================
-   ROMANTIC MESSAGE
-========================= */
+/* ROMANTIC MESSAGE */
 
 .message {
     background: rgba(255,255,255,0.09);
@@ -161,9 +220,7 @@ button:hover {
     width: 100%;
 }
 
-/* =========================
-   BIRTHDAY CAKE
-========================= */
+/* BIRTHDAY CAKE */
 
 .cake {
     font-size: 85px;
@@ -172,9 +229,7 @@ button:hover {
     animation: heartbeat 1.5s infinite;
 }
 
-/* =========================
-   SIGNATURE
-========================= */
+/* SIGNATURE */
 
 .signature {
     color: #ffb6d5;
@@ -182,9 +237,7 @@ button:hover {
     margin-top: 20px;
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
+/* FLOATING HEARTS */
 
 .floating-heart {
     position: fixed;
@@ -202,9 +255,7 @@ button:hover {
     }
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .footer {
     margin-top: 35px;
@@ -212,17 +263,13 @@ button:hover {
     font-size: 13px;
 }
 
-/* =========================
-   WISH MESSAGE
-========================= */
+/* WISH MESSAGE */
 
 #wish {
     display: none;
 }
 
-/* =========================
-   SECRET LOVE LETTER
-========================= */
+/* SECRET LOVE LETTER */
 
 .letter-section {
     margin: 40px auto;
@@ -266,9 +313,7 @@ button:hover {
     margin-bottom: 15px;
 }
 
-/* =========================
-   MOBILE RESPONSIVE DESIGN
-========================= */
+/* MOBILE RESPONSIVE DESIGN */
 
 @media screen and (max-width: 600px) {
 
@@ -324,6 +369,18 @@ button:hover {
     .letter-content {
         padding: 20px 15px;
     }
+
+    .puzzle-card {
+        padding: 22px 15px;
+    }
+
+    .puzzle-question {
+        font-size: 20px;
+    }
+
+    .puzzle-option {
+        font-size: 15px;
+    }
 }
 
 </style>
@@ -332,6 +389,73 @@ button:hover {
 <body>
 
 <div class="container">
+
+    <!-- PUZZLE SCREEN - FIRST SCREEN -->
+
+    <div id="puzzle">
+
+        <div class="puzzle-heart">💝</div>
+
+        <h1>A Little Game</h1>
+
+        <p>
+            Before your birthday surprise,
+            I have a little question for you!
+        </p>
+
+        <div class="puzzle-card">
+
+            <h2>Complete Our Little Story ❤️</h2>
+
+            <p>
+                Two hearts, one beautiful journey,
+                and a little star named Hridhaan. ✨
+            </p>
+
+            <div class="puzzle-question">
+                What makes our little family complete?
+            </div>
+
+            <div id="puzzleOptions">
+
+                <button class="puzzle-option"
+                    onclick="selectAnswer(this, 'house')">
+                    🏡 A beautiful house
+                </button>
+
+                <button class="puzzle-option"
+                    onclick="selectAnswer(this, 'love')">
+                    ❤️ Love, care and togetherness
+                </button>
+
+                <button class="puzzle-option"
+                    onclick="selectAnswer(this, 'gifts')">
+                    🎁 Lots of gifts
+                </button>
+
+            </div>
+
+            <p id="puzzleFeedback"></p>
+
+            <button id="puzzleSubmit"
+                onclick="checkAnswer()">
+                Submit My Answer 💗
+            </button>
+
+            <button id="continueButton"
+                onclick="showWelcome()"
+                style="display:none;">
+                Continue to Your Surprise ❤️
+            </button>
+
+        </div>
+
+        <p class="footer">
+            A little game made just for you.
+        </p>
+
+    </div>
+
 
     <!-- WELCOME SCREEN -->
 
@@ -414,7 +538,7 @@ button:hover {
         </div>
 
 
-        <!-- ROMANTIC LETTER -->
+        <!-- ROMANTIC MESSAGE -->
 
         <div class="message">
 
@@ -468,10 +592,11 @@ button:hover {
 
         <div class="letter-section">
 
-            <h2>💌 One Last Surprise For You</h2>
+            <h2>💌 A Little Message From Our Hearts</h2>
 
             <p>
-                Veena, I have something special to tell you...
+                A little something about us,
+                our Hridhaan and the memories we share. ❤️
             </p>
 
             <button
@@ -487,40 +612,36 @@ button:hover {
             </p>
 
 
-            <!-- HIDDEN LOVE LETTER -->
+            <!-- SHORT LOVE LETTER -->
 
             <div id="loveLetter" class="letter-content">
 
-                <h2>My Dearest Veena ❤️</h2>
+                <h2>Dear Veena ❤️</h2>
 
                 <p>
-                    Sometimes words are not enough to express
-                    what someone means to us.
+                    No matter how life changes, some memories
+                    will always remain close to the heart.
                 </p>
 
                 <p>
-                    I may not be perfect, but I want to keep
-                    learning, growing and making beautiful
-                    memories with you.
+                    Our little Hridhaan is a beautiful reminder
+                    of the love and happiness we once dreamed of.
                 </p>
 
                 <p>
-                    Thank you for being part of my journey.
-                    I wish you happiness, peace, good health
-                    and everything your heart dreams of.
+                    Sometimes, a small conversation can open
+                    the door to a beautiful new beginning.
                 </p>
 
                 <p>
-                    Whatever tomorrow brings, I hope we continue
-                    to understand each other, support each other
-                    and build a beautiful life together.
+                    I hope someday we can smile together again.
                 </p>
 
-                <h2>Forever Yours ❤️</h2>
+                <h2>Happy Birthday, Veena ❤️</h2>
 
-                <p>
-                    With all my love.
-                </p>
+                <div class="signature">
+                    With Love ❤️
+                </div>
 
             </div>
 
@@ -538,7 +659,7 @@ button:hover {
 </div>
 
 
-<!-- OPTIONAL BACKGROUND MUSIC -->
+<!-- BACKGROUND MUSIC -->
 
 <audio id="music" loop>
     <source src="birthday-music.mp3" type="audio/mpeg">
@@ -549,6 +670,78 @@ button:hover {
 
 <script>
 
+// PUZZLE ANSWER SELECTION
+
+let selectedAnswer = "";
+
+function selectAnswer(button, answer) {
+
+    selectedAnswer = answer;
+
+    const options = document.querySelectorAll(".puzzle-option");
+
+    options.forEach(option => {
+        option.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    document.getElementById("puzzleFeedback").innerText = "";
+
+}
+
+
+// CHECK PUZZLE ANSWER
+
+function checkAnswer() {
+
+    const feedback = document.getElementById("puzzleFeedback");
+
+    if (selectedAnswer === "") {
+
+        feedback.innerText = "Choose one answer first 😊";
+        return;
+
+    }
+
+    if (selectedAnswer === "love") {
+
+        feedback.innerText =
+            "That's right! Some things are more precious than anything else. ❤️";
+
+        document.getElementById("puzzleSubmit").style.display = "none";
+
+        document.getElementById("continueButton").style.display =
+            "inline-block";
+
+        celebrate();
+
+    } else {
+
+        feedback.innerText =
+            "Not quite! Think about what matters most in a family. 💕";
+
+    }
+
+}
+
+
+// SHOW WELCOME SCREEN
+
+function showWelcome() {
+
+    document.getElementById("puzzle").style.display = "none";
+
+    document.getElementById("welcome").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
 // OPEN BIRTHDAY SURPRISE
 
 function openSurprise() {
@@ -557,7 +750,9 @@ function openSurprise() {
 
     document.getElementById("surprise").style.display = "block";
 
-    document.getElementById("music").play().catch(() => {});
+    const music = document.getElementById("music");
+
+    music.play().catch(() => {});
 
     celebrate();
 
