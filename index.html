@@ -5,12 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Happy Birthday Veena ❤️</title>
 
 <style>
 
-/* GENERAL STYLING */
+/* =========================
+   GENERAL STYLING
+========================= */
 
 * {
     margin: 0;
@@ -24,12 +25,7 @@ html {
 
 body {
     font-family: Georgia, serif;
-    background: linear-gradient(
-        135deg,
-        #200018,
-        #59002e,
-        #180014
-    );
+    background: linear-gradient(135deg, #200018, #59002e, #180014);
     color: white;
     min-height: 100vh;
     width: 100%;
@@ -45,10 +41,11 @@ body {
     justify-content: center;
     align-items: center;
     padding: 30px 18px;
-    position: relative;
 }
 
-/* HEADINGS */
+/* =========================
+   HEADINGS
+========================= */
 
 h1 {
     font-size: clamp(38px, 8vw, 65px);
@@ -68,7 +65,9 @@ p {
     line-height: 1.8;
 }
 
-/* HEART ANIMATION */
+/* =========================
+   HEART ANIMATION
+========================= */
 
 .heart {
     font-size: 65px;
@@ -86,18 +85,16 @@ p {
     }
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 
 button {
     padding: 15px 30px;
     margin: 20px;
     border: none;
     border-radius: 30px;
-    background: linear-gradient(
-        45deg,
-        #ff4d94,
-        #ff9ac5
-    );
+    background: linear-gradient(45deg, #ff4d94, #ff9ac5);
     color: white;
     font-size: 17px;
     font-weight: bold;
@@ -110,7 +107,9 @@ button:hover {
     transform: scale(1.08);
 }
 
-/* SURPRISE SECTION */
+/* =========================
+   SURPRISE SECTION
+========================= */
 
 #surprise {
     display: none;
@@ -131,7 +130,9 @@ button:hover {
     }
 }
 
-/* VEENA PHOTO */
+/* =========================
+   VEENA PHOTO
+========================= */
 
 .photo {
     display: block;
@@ -145,7 +146,9 @@ button:hover {
     margin: 20px auto;
 }
 
-/* ROMANTIC MESSAGE */
+/* =========================
+   ROMANTIC MESSAGE
+========================= */
 
 .message {
     background: rgba(255,255,255,0.09);
@@ -158,7 +161,9 @@ button:hover {
     width: 100%;
 }
 
-/* BIRTHDAY CAKE */
+/* =========================
+   BIRTHDAY CAKE
+========================= */
 
 .cake {
     font-size: 85px;
@@ -167,7 +172,9 @@ button:hover {
     animation: heartbeat 1.5s infinite;
 }
 
-/* SIGNATURE */
+/* =========================
+   SIGNATURE
+========================= */
 
 .signature {
     color: #ffb6d5;
@@ -175,7 +182,9 @@ button:hover {
     margin-top: 20px;
 }
 
-/* FLOATING HEARTS */
+/* =========================
+   FLOATING HEARTS
+========================= */
 
 .floating-heart {
     position: fixed;
@@ -193,7 +202,9 @@ button:hover {
     }
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
     margin-top: 35px;
@@ -201,13 +212,63 @@ button:hover {
     font-size: 13px;
 }
 
-/* WISH MESSAGE */
+/* =========================
+   WISH MESSAGE
+========================= */
 
 #wish {
     display: none;
 }
 
-/* MOBILE RESPONSIVE DESIGN */
+/* =========================
+   SECRET LOVE LETTER
+========================= */
+
+.letter-section {
+    margin: 40px auto;
+    width: 100%;
+}
+
+.envelope-button {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 10px;
+    font-size: 85px;
+    cursor: pointer;
+    animation: heartbeat 1.5s infinite;
+}
+
+.envelope-button:hover {
+    transform: scale(1.15);
+}
+
+.letter-content {
+    display: none;
+    background: #fff0f5;
+    color: #65002f;
+    padding: 28px 22px;
+    border-radius: 15px;
+    margin: 20px auto;
+    line-height: 2;
+    box-shadow: 0 0 30px #ff69a6;
+    animation: appear 1.5s ease;
+}
+
+.letter-content h2 {
+    color: #c2185b;
+}
+
+.letter-content p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #65002f;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+========================= */
 
 @media screen and (max-width: 600px) {
 
@@ -254,6 +315,14 @@ button:hover {
 
     .signature {
         font-size: 20px;
+    }
+
+    .envelope-button {
+        font-size: 75px;
+    }
+
+    .letter-content {
+        padding: 20px 15px;
     }
 }
 
@@ -395,6 +464,69 @@ button:hover {
         </div>
 
 
+        <!-- SECRET ENVELOPE -->
+
+        <div class="letter-section">
+
+            <h2>💌 One Last Surprise For You</h2>
+
+            <p>
+                Veena, I have something special to tell you...
+            </p>
+
+            <button
+                class="envelope-button"
+                onclick="openLetter()"
+                aria-label="Open your secret love letter"
+            >
+                💌
+            </button>
+
+            <p>
+                Touch the envelope to open your letter ❤️
+            </p>
+
+
+            <!-- HIDDEN LOVE LETTER -->
+
+            <div id="loveLetter" class="letter-content">
+
+                <h2>My Dearest Veena ❤️</h2>
+
+                <p>
+                    Sometimes words are not enough to express
+                    what someone means to us.
+                </p>
+
+                <p>
+                    I may not be perfect, but I want to keep
+                    learning, growing and making beautiful
+                    memories with you.
+                </p>
+
+                <p>
+                    Thank you for being part of my journey.
+                    I wish you happiness, peace, good health
+                    and everything your heart dreams of.
+                </p>
+
+                <p>
+                    Whatever tomorrow brings, I hope we continue
+                    to understand each other, support each other
+                    and build a beautiful life together.
+                </p>
+
+                <h2>Forever Yours ❤️</h2>
+
+                <p>
+                    With all my love.
+                </p>
+
+            </div>
+
+        </div>
+
+
         <!-- CELEBRATION BUTTON -->
 
         <button onclick="celebrate()">
@@ -436,11 +568,31 @@ function openSurprise() {
 
 function makeWish() {
 
-    document.getElementById("wish").style.display = "block";
+    const wish = document.getElementById("wish");
+
+    wish.style.display = "block";
 
     celebrate();
 
-    document.getElementById("wish").scrollIntoView({
+    wish.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+// OPEN SECRET LOVE LETTER
+
+function openLetter() {
+
+    const letter = document.getElementById("loveLetter");
+
+    letter.style.display = "block";
+
+    celebrate();
+
+    letter.scrollIntoView({
         behavior: "smooth",
         block: "center"
     });
