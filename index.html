@@ -361,6 +361,64 @@ button:disabled {
     margin-bottom: 15px;
 }
 
+
+/* FINAL FAMILY MEMORY SCREEN */
+
+#finalMemory {
+    display: none;
+    background: linear-gradient(145deg, #4b1235, #250019);
+    border: 2px solid #ffb6d5;
+    border-radius: 25px;
+    padding: 25px 18px;
+    margin: 35px auto;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(255, 77, 148, 0.4);
+    animation: finalReveal 1.5s ease forwards;
+}
+
+@keyframes finalReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.75) translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.family-photo {
+    width: 100%;
+    max-width: 420px;
+    max-height: 500px;
+    height: auto;
+    object-fit: cover;
+    border: 4px solid #ffb6d5;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #ff4d94;
+    margin: 20px auto;
+    display: block;
+}
+
+.final-title {
+    color: #ffc0d9;
+    font-size: 30px;
+    margin: 20px 0;
+}
+
+.final-message {
+    color: #fff0f5;
+    font-size: 18px;
+    line-height: 1.9;
+    margin: 15px 0;
+}
+
+.final-signature {
+    color: #ffb6d5;
+    font-size: 22px;
+    margin-top: 25px;
+}
+
 /* MOBILE RESPONSIVE DESIGN */
 
 @media screen and (max-width: 600px) {
@@ -448,7 +506,7 @@ button:disabled {
         <h1>A Little Game</h1>
 
         <p>
-            Before your birthday surprise,
+            Amma, Before your birthday surprise,
             I have a little question for you!
         </p>
 
@@ -631,7 +689,7 @@ button:disabled {
             </p>
 
             <div class="signature">
-                Forever Yours ❤️
+                Forever Yours Krish ❤️
             </div>
 
         </div>
@@ -697,11 +755,57 @@ button:disabled {
         </div>
 
 
-        <!-- CELEBRATION BUTTON -->
+        <!-- FINAL FAMILY MEMORY -->
 
-        <button onclick="celebrate()">
-            Celebrate Again 🎉
+        <button onclick="showFinalMemory()">
+            One Last Little Surprise 💝
         </button>
+
+        <div id="finalMemory">
+
+            <h2 class="final-title">
+                Our Little World ❤️
+            </h2>
+
+            <p>
+                Three hearts, one beautiful story.
+            </p>
+
+            <img
+                src="./family-photo.jpg"
+                alt="Our beautiful family"
+                class="family-photo"
+            >
+
+            <h2 class="final-title">
+                Krishna ❤️ Veena ❤️ Hridhaan
+            </h2>
+
+            <p class="final-message">
+                Some moments become memories.
+                Some people become home.
+                And some bonds are always worth cherishing.
+            </p>
+
+            <p class="final-message">
+                Whatever tomorrow brings,
+                I hope it brings us more smiles,
+                more understanding and beautiful memories.
+            </p>
+
+            <h2 class="final-title">
+                Happy Birthday, Veena! 🌹
+            </h2>
+
+            <div class="final-signature">
+                With Love, Always ❤️
+            </div>
+
+            <div style="font-size:40px; margin-top:20px;">
+                💕 🌹 ✨
+            </div>
+
+        </div>
 
     </div>
 
@@ -911,6 +1015,30 @@ function celebrate() {
         setTimeout(() => heart.remove(), 8000);
 
     }
+
+}
+
+
+// SHOW FINAL FAMILY MEMORY
+
+function showFinalMemory() {
+
+    const finalMemory = document.getElementById("finalMemory");
+
+    finalMemory.style.display = "block";
+
+    celebrate();
+
+    setTimeout(() => {
+        celebrate();
+    }, 800);
+
+    setTimeout(() => {
+        finalMemory.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }, 300);
 
 }
 
