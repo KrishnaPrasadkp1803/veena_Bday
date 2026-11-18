@@ -263,7 +263,6 @@ button:disabled {
     font-size: 13px;
 }
 
-
 /* ANIMATED BIRTHDAY WISH */
 
 #wish {
@@ -273,14 +272,16 @@ button:disabled {
 
 #wish.wish-show {
     display: block;
-    animation: birthdayReveal 1.2s cubic-bezier(.17,.89,.32,1.4) forwards,
-               wishGlow 2s ease-in-out 1.2s infinite alternate;
+    animation:
+        birthdayReveal 1.2s cubic-bezier(.17,.89,.32,1.4) forwards,
+        wishGlow 2s ease-in-out 1.2s infinite alternate;
     transform-origin: center;
     border: 2px solid #ff9ac5;
     box-shadow: 0 0 25px #ff4d94;
 }
 
 @keyframes birthdayReveal {
+
     0% {
         opacity: 0;
         transform: scale(0.3) translateY(80px) rotate(-5deg);
@@ -299,19 +300,22 @@ button:disabled {
         opacity: 1;
         transform: scale(1) translateY(0) rotate(0);
     }
+
 }
 
 @keyframes wishGlow {
+
     from {
         box-shadow: 0 0 15px #ff4d94;
     }
 
     to {
-        box-shadow: 0 0 40px #ff69b4,
-                    0 0 65px #ff1493;
+        box-shadow:
+            0 0 40px #ff69b4,
+            0 0 65px #ff1493;
     }
-}
 
+}
 
 /* SECRET LOVE LETTER */
 
@@ -425,6 +429,7 @@ button:disabled {
     .puzzle-option {
         font-size: 15px;
     }
+
 }
 
 </style>
@@ -434,7 +439,7 @@ button:disabled {
 
 <div class="container">
 
-    <!-- PUZZLE SCREEN - FIRST SCREEN -->
+    <!-- FIRST SCREEN: PUZZLE -->
 
     <div id="puzzle">
 
@@ -501,7 +506,7 @@ button:disabled {
     </div>
 
 
-    <!-- WELCOME SCREEN -->
+    <!-- SECOND SCREEN: WELCOME -->
 
     <div id="welcome">
 
@@ -527,7 +532,7 @@ button:disabled {
     </div>
 
 
-    <!-- BIRTHDAY SURPRISE -->
+    <!-- THIRD SCREEN: BIRTHDAY SURPRISE -->
 
     <div id="surprise">
 
@@ -560,12 +565,12 @@ button:disabled {
         </button>
 
 
-        <!-- SPECIAL WISH -->
+        <!-- ANIMATED BIRTHDAY WISH -->
 
         <div id="wish" class="message">
 
             <h2>
-                ❤️ Veena, You Deserve All The Happiness!
+                ❤️ Veena, You Deserve All The Happiness! ❤️
             </h2>
 
             <p>
@@ -703,9 +708,12 @@ button:disabled {
 </div>
 
 
-<!-- BACKGROUND MUSIC -->
+<!-- BACKGROUND MUSIC
+     Later upload birthday-music.mp3
+     into the same folder as index.html
+-->
 
-<audio id="music" loop>
+<audio id="music" loop preload="auto">
     <source src="birthday-music.mp3" type="audio/mpeg">
 </audio>
 
@@ -786,7 +794,7 @@ function showWelcome() {
 }
 
 
-// OPEN BIRTHDAY SURPRISE
+// OPEN BIRTHDAY SURPRISE AND START MUSIC
 
 function openSurprise() {
 
@@ -794,17 +802,24 @@ function openSurprise() {
 
     document.getElementById("surprise").style.display = "block";
 
+    // Music starts only after clicking Open Your Surprise.
+    // If the MP3 is not uploaded yet, the rest of the
+    // birthday website will still work normally.
+
     const music = document.getElementById("music");
 
-    music.play().catch(() => {});
+    music.volume = 0.45;
+
+    music.play().catch(error => {
+        console.log("Music is not available yet:", error);
+    });
 
     celebrate();
 
 }
 
 
-// BLOW CANDLES
-
+// ANIMATED BIRTHDAY WISH
 
 function makeWish() {
 
@@ -817,15 +832,18 @@ function makeWish() {
 
     wish.classList.add("wish-show");
 
-    // Big birthday celebration
+    // Birthday celebration
+
     celebrate();
 
     // Extra sparkle celebration
+
     setTimeout(() => {
         celebrate();
     }, 700);
 
-    // Bring the birthday message into view
+    // Bring birthday message into view
+
     setTimeout(() => {
         wish.scrollIntoView({
             behavior: "smooth",
@@ -836,7 +854,6 @@ function makeWish() {
 }
 
 
-
 // OPEN SECRET LOVE LETTER
 
 function openLetter() {
@@ -844,6 +861,8 @@ function openLetter() {
     const letter = document.getElementById("loveLetter");
 
     letter.style.display = "block";
+
+    // Music is not restarted or interrupted here.
 
     celebrate();
 
@@ -855,7 +874,7 @@ function openLetter() {
 }
 
 
-// CELEBRATION ANIMATION
+// FLOATING HEARTS AND CELEBRATION
 
 function celebrate() {
 
