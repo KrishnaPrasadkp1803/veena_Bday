@@ -191,9 +191,18 @@ button:hover {
             Blow Your Candles 🕯️
         </button>
 
-        <div id="wish" style="display:none;">
-            <h2>✨ Your Wish Is Sent To The Universe ✨</h2>
-        </div>
+        <div id="wish" style="display:none;" class="message">
+    <h2>❤️ Veena, You Deserve All The Happiness!</h2>
+
+    <p>
+        May every dream of yours come true.
+        May your smile never fade.
+        And may our journey together become
+        more beautiful with every passing year.
+    </p>
+
+    <h2>Happy Birthday, My Love! ❤️</h2>
+</div>
 
         <div class="message">
 
@@ -272,6 +281,11 @@ function makeWish() {
     document.getElementById("wish").style.display = "block";
 
     celebrate();
+
+    document.getElementById("wish").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 
 }
 
