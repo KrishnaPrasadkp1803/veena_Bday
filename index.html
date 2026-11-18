@@ -263,11 +263,55 @@ button:disabled {
     font-size: 13px;
 }
 
-/* WISH MESSAGE */
+
+/* ANIMATED BIRTHDAY WISH */
 
 #wish {
     display: none;
+    opacity: 0;
 }
+
+#wish.wish-show {
+    display: block;
+    animation: birthdayReveal 1.2s cubic-bezier(.17,.89,.32,1.4) forwards,
+               wishGlow 2s ease-in-out 1.2s infinite alternate;
+    transform-origin: center;
+    border: 2px solid #ff9ac5;
+    box-shadow: 0 0 25px #ff4d94;
+}
+
+@keyframes birthdayReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(80px) rotate(-5deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.08) translateY(-10px) rotate(2deg);
+    }
+
+    80% {
+        transform: scale(0.96) translateY(3px) rotate(-1deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotate(0);
+    }
+}
+
+@keyframes wishGlow {
+    from {
+        box-shadow: 0 0 15px #ff4d94;
+    }
+
+    to {
+        box-shadow: 0 0 40px #ff69b4,
+                    0 0 65px #ff1493;
+    }
+}
+
 
 /* SECRET LOVE LETTER */
 
@@ -761,20 +805,36 @@ function openSurprise() {
 
 // BLOW CANDLES
 
+
 function makeWish() {
 
     const wish = document.getElementById("wish");
 
-    wish.style.display = "block";
+    if (wish.classList.contains("wish-show")) {
+        celebrate();
+        return;
+    }
 
+    wish.classList.add("wish-show");
+
+    // Big birthday celebration
     celebrate();
 
-    wish.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    // Extra sparkle celebration
+    setTimeout(() => {
+        celebrate();
+    }, 700);
+
+    // Bring the birthday message into view
+    setTimeout(() => {
+        wish.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }, 300);
 
 }
+
 
 
 // OPEN SECRET LOVE LETTER
