@@ -1,29 +1,45 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Veena ❤️</title>
 
 <style>
+
+/* GENERAL STYLING */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #200018, #59002e, #180014);
+    font-family: Georgia, serif;
+    background: linear-gradient(
+        135deg,
+        #200018,
+        #59002e,
+        #180014
+    );
     color: white;
     min-height: 100vh;
+    width: 100%;
     overflow-x: hidden;
     text-align: center;
 }
 
 .container {
     min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,11 +48,14 @@ body {
     position: relative;
 }
 
+/* HEADINGS */
+
 h1 {
     font-size: clamp(38px, 8vw, 65px);
     color: #ffb6d5;
     text-shadow: 0 0 20px #ff4d94;
     margin-bottom: 15px;
+    line-height: 1.2;
 }
 
 h2 {
@@ -49,6 +68,8 @@ p {
     line-height: 1.8;
 }
 
+/* HEART ANIMATION */
+
 .heart {
     font-size: 65px;
     animation: heartbeat 1.3s infinite;
@@ -56,16 +77,27 @@ p {
 }
 
 @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
 }
+
+/* BUTTONS */
 
 button {
     padding: 15px 30px;
     margin: 20px;
     border: none;
     border-radius: 30px;
-    background: linear-gradient(45deg, #ff4d94, #ff9ac5);
+    background: linear-gradient(
+        45deg,
+        #ff4d94,
+        #ff9ac5
+    );
     color: white;
     font-size: 17px;
     font-weight: bold;
@@ -78,6 +110,8 @@ button:hover {
     transform: scale(1.08);
 }
 
+/* SURPRISE SECTION */
+
 #surprise {
     display: none;
     max-width: 700px;
@@ -86,13 +120,23 @@ button:hover {
 }
 
 @keyframes appear {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+/* VEENA PHOTO */
 
 .photo {
     display: block;
     width: 250px;
+    max-width: 85vw;
     height: 300px;
     object-fit: cover;
     border-radius: 20px;
@@ -100,6 +144,8 @@ button:hover {
     box-shadow: 0 0 30px #ff4d94;
     margin: 20px auto;
 }
+
+/* ROMANTIC MESSAGE */
 
 .message {
     background: rgba(255,255,255,0.09);
@@ -109,19 +155,27 @@ button:hover {
     margin: 20px 0;
     line-height: 2;
     box-shadow: 0 0 25px rgba(255,77,148,0.2);
+    width: 100%;
 }
+
+/* BIRTHDAY CAKE */
 
 .cake {
     font-size: 85px;
     margin: 20px;
     cursor: pointer;
+    animation: heartbeat 1.5s infinite;
 }
+
+/* SIGNATURE */
 
 .signature {
     color: #ffb6d5;
     font-size: 23px;
     margin-top: 20px;
 }
+
+/* FLOATING HEARTS */
 
 .floating-heart {
     position: fixed;
@@ -139,11 +193,70 @@ button:hover {
     }
 }
 
+/* FOOTER */
+
 .footer {
     margin-top: 35px;
     color: #ffb6d5;
     font-size: 13px;
 }
+
+/* WISH MESSAGE */
+
+#wish {
+    display: none;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+
+@media screen and (max-width: 600px) {
+
+    .container {
+        padding: 20px 12px;
+    }
+
+    h1 {
+        font-size: clamp(32px, 9vw, 44px);
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .heart {
+        font-size: 48px;
+    }
+
+    .cake {
+        font-size: 65px;
+    }
+
+    .photo {
+        width: min(230px, 85vw);
+        height: auto;
+        aspect-ratio: 5 / 6;
+    }
+
+    .message {
+        padding: 18px;
+    }
+
+    button {
+        max-width: 100%;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+
+    .signature {
+        font-size: 20px;
+    }
+}
+
 </style>
 </head>
 
@@ -151,7 +264,10 @@ button:hover {
 
 <div class="container">
 
+    <!-- WELCOME SCREEN -->
+
     <div id="welcome">
+
         <div class="heart">❤️</div>
 
         <h1>Happy Birthday</h1>
@@ -170,7 +286,11 @@ button:hover {
         <p class="footer">
             A little surprise, made with lots of love.
         </p>
+
     </div>
+
+
+    <!-- BIRTHDAY SURPRISE -->
 
     <div id="surprise">
 
@@ -180,9 +300,20 @@ button:hover {
             To the most special person in my life ❤️
         </p>
 
-      <img src="./veena.jpg"
-     alt="Veena"
-     class="photo">
+
+        <!-- VEENA'S PHOTO -->
+
+        <img
+            src="./veena.jpg"
+            alt="Beautiful Veena"
+            class="photo"
+        >
+
+
+        <!-- BIRTHDAY CAKE -->
+
+        <div class="cake" onclick="makeWish()">
+            🎂
         </div>
 
         <h2>Make a Beautiful Wish ✨</h2>
@@ -191,18 +322,30 @@ button:hover {
             Blow Your Candles 🕯️
         </button>
 
-        <div id="wish" style="display:none;" class="message">
-    <h2>❤️ Veena, You Deserve All The Happiness!</h2>
 
-    <p>
-        May every dream of yours come true.
-        May your smile never fade.
-        And may our journey together become
-        more beautiful with every passing year.
-    </p>
+        <!-- SPECIAL WISH -->
 
-    <h2>Happy Birthday, My Love! ❤️</h2>
-</div>
+        <div id="wish" class="message">
+
+            <h2>
+                ❤️ Veena, You Deserve All The Happiness!
+            </h2>
+
+            <p>
+                May every dream of yours come true.
+                May your smile never fade.
+                And may our journey together become
+                more beautiful with every passing year.
+            </p>
+
+            <h2>
+                Happy Birthday, My Love! ❤️
+            </h2>
+
+        </div>
+
+
+        <!-- ROMANTIC LETTER -->
 
         <div class="message">
 
@@ -251,6 +394,9 @@ button:hover {
 
         </div>
 
+
+        <!-- CELEBRATION BUTTON -->
+
         <button onclick="celebrate()">
             Celebrate Again 🎉
         </button>
@@ -259,11 +405,19 @@ button:hover {
 
 </div>
 
+
+<!-- OPTIONAL BACKGROUND MUSIC -->
+
 <audio id="music" loop>
     <source src="birthday-music.mp3" type="audio/mpeg">
 </audio>
 
+
+<!-- JAVASCRIPT -->
+
 <script>
+
+// OPEN BIRTHDAY SURPRISE
 
 function openSurprise() {
 
@@ -274,7 +428,11 @@ function openSurprise() {
     document.getElementById("music").play().catch(() => {});
 
     celebrate();
+
 }
+
+
+// BLOW CANDLES
 
 function makeWish() {
 
@@ -289,9 +447,20 @@ function makeWish() {
 
 }
 
+
+// CELEBRATION ANIMATION
+
 function celebrate() {
 
-    const symbols = ["❤️", "💕", "💖", "✨", "🌹", "💗", "🎉"];
+    const symbols = [
+        "❤️",
+        "💕",
+        "💖",
+        "✨",
+        "🌹",
+        "💗",
+        "🎉"
+    ];
 
     for (let i = 0; i < 35; i++) {
 
@@ -302,9 +471,11 @@ function celebrate() {
         heart.innerHTML =
             symbols[Math.floor(Math.random() * symbols.length)];
 
-        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.left =
+            Math.random() * 100 + "vw";
 
-        heart.style.fontSize = (15 + Math.random() * 25) + "px";
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
 
         heart.style.animationDuration =
             (3 + Math.random() * 5) + "s";
